@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitBuddy - AI Workout Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.97);
+      border-radius: 18px;
+      padding: 35px 40px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    }
+
+    .card h1 {
+      font-size: 24px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 25px;
+      color: #111;
+    }
+
+    .card h1 span { color: #2563eb; }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 11px 14px;
+      margin-bottom: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border 0.2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    button:hover { background: #1d4ed8; }
+
+    .footer-links {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 13px;
+    }
+
+    .footer-links a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>💪 FitBuddy - <span>AI Workout Generator</span></h1>
+    <form action="/generate-workout" method="post">
+      <label for="username">Name:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your name" required />
+
+      <label for="user_id">User ID:</label>
+      <input type="number" id="user_id" name="user_id" placeholder="Enter a unique numeric ID" required />
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" min="1" max="120" placeholder="Enter your age" required />
+
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" name="weight" step="0.1" min="1" placeholder="Enter your weight" required />
+
+      <label for="goal">Fitness Goal:</label>
+      <input type="text" id="goal" name="goal" placeholder="e.g., weight loss, flexibility, muscle gain" required />
+
+      <label for="intensity">Workout Intensity:</label>
+      <select id="intensity" name="intensity" required>
+        <option value="Low">Low</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="High">High</option>
+      </select>
+
+      <button type="submit">Generate Plan</button>
+    </form>
+
+    <div class="footer-links">
+      <a href="/view-all-users">View All Users (Admin)</a> &nbsp;|&nbsp;
+      <a href="/docs">API Docs</a>
+    </div>
+  </div>
+</body>
+</html>
